@@ -1,8 +1,7 @@
 # blah
 
-feature
-feature 2
-firstreadme update
+feature  
+feature 2  
 
 pushed feature 2 to master first, then pulled master, then rebased feature onto master
 feature 2, reordering initial features
@@ -15,3 +14,8 @@ making changes to featureBranch1, based on ca29fb6
 - If it drops into an interactive rebase, update the commit message and maybe add another commit with additional changes
 
 - this is a [good article for rebasing](https://www.becomebetterprogrammer.com/git-rebase/#10_Once_you_finish_rebasing_DO_NOT_pull_but_push_immediately_to_remote)
+
+***
+`git reset --soft HEAD~3` removes this many commits -> includes 3 commits total starting with HEAD
+![before](/assets/reset.png)
+![after](/assets/after.png)
