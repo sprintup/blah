@@ -1,4 +1,4 @@
-# blah
+# Rebasing 
 
 feature  
 feature 2  
@@ -16,6 +16,10 @@ making changes to featureBranch1, based on ca29fb6
 - this is a [good article for rebasing](https://www.becomebetterprogrammer.com/git-rebase/#10_Once_you_finish_rebasing_DO_NOT_pull_but_push_immediately_to_remote)
 
 ***
-`git reset --soft HEAD~3` removes this many commits -> includes 3 commits total starting with HEAD
+# Combining commits
+`git reset --soft HEAD~3` combines this many commits -> includes 3 commits total starting with HEAD
 ![before](/assets/reset.png)
 ![after](/assets/after.png)
+
+***
+# Deleting commits
