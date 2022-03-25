@@ -26,3 +26,5 @@ making changes to featureBranch1, based on ca29fb6
 [good article on deleting commits](https://www.w3docs.com/snippets/git/deleting-commits-from-a-branch-in-git.html)
  - `git reset --hard HEAD~N` where N is the number of commits to remove
  
+ # Git Reflog
+ - `git reflog` will show you even deleted commits that can be checked out with a `git reset --hard <sha>`
