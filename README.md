@@ -1,3 +1,5 @@
+Practicing a rebase, the master branch already had an update to this file, but here is an update on the rebaseFeatureBranch. Now both the master branch and rebaseFeatureBranch have operated on the same file and there should be a conflict.
+***
 # Rebasing 
 
 feature  
@@ -13,7 +15,7 @@ making changes to featureBranch1, based on ca29fb6
 - When conflicts have been resolved, you'll want to run `git push origin <featureBranch> --force-with-lease` without pulling. [article on --force-with-lease](https://itnext.io/git-force-vs-force-with-lease-9d0e753e8c41)
 - If it drops into an interactive rebase, update the commit message and maybe add another commit with additional changes
 
-- this is a [good article for rebasing](https://www.becomebetterprogrammer.com/git-rebase/#10_Once_you_finish_rebasing_DO_NOT_pull_but_push_immediately_to_remote)
+- this is a [good article for rebasing](https://www.becomgitebetterprogrammer.com/git-rebase/#10_Once_you_finish_rebasing_DO_NOT_pull_but_push_immediately_to_remote)
 
 ***
 # Combining commits
