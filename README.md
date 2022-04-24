@@ -1,5 +1,5 @@
-Practicing a rebase, the master branch already had an update to this file,((Ok so that didn't work, here is a change on line 1 from master)) but here is an update on the rebaseFeatureBranch. Now both the master branch and rebaseFeatureBranch have operated on the same file and there should be a conflict.
-***
+
+Practicing a rebase, the master branch already had an update to this file,((Ok so that didn't work, here is a change on line 1 from master and rebaseFeature)) but here is an update on the rebaseFeatureBranch. Now both the master branch and rebaseFeatureBranch have operated on the same file and there should be a conflict.
 # Rebasing 
 
 feature  
