@@ -8,7 +8,7 @@ feature 2, reordering initial features
 making changes to featureBranch1, based on ca29fb6
 
 
-- when you rebase with `git rebase master` when on a featureBranch based on older commit, HEAD is pointed at the master branch, while the changes you're rebasing onto master are the incoming changes. Further, the incoming changes, in the resolve conflicts view, come second, even if the work proceeds what is already in master.
+- when you rebase with `git rebase master` when on a featureBranch based on older commit, HEAD is pointed at the master branch, while the changes you're rebasing onto master are the incoming changes. Further, the incoming changes, in the resolve conflicts view, come second, even if the work preceeds what is already in master.
 - Also, have to run `git add .` then `git rebase --continue` after resolving conflicts 
 - When conflicts have been resolved, you'll want to run `git push origin <featureBranch> --force-with-lease` without pulling. [article on --force-with-lease](https://itnext.io/git-force-vs-force-with-lease-9d0e753e8c41)
 - If it drops into an interactive rebase, update the commit message and maybe add another commit with additional changes
