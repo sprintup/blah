@@ -59,13 +59,6 @@ Here is a change to tag
 # Merging
 - move to branch you want to move changes into then run `git merge branchWhereChangesAreComingFrom`
 # Rebasing 
-#### Removing text (this represents first commit on branch f1)
-#### Adding some text (this represents second commit on branch f2)
-![rebase1](/assets/rebase1.png)
-![rebase2](/assets/rebase2.png)
-#### Finalized some changes (this represents third commit on branch f1)
-![rebase3](/assets/rebase3.png)
-Then, ***while on f1*** I ran `git rebase f2` as if to say 'rebase changes of f2 onto f1'. A similar sequence below:
 
 - when you rebase with `git rebase master` when on a featureBranch based on older commit, HEAD is pointed at the master branch, while the changes you're rebasing onto master are the incoming changes. Further, the incoming changes, in the resolve conflicts view, come second, even if the work precedes what is already in master.
 - Also, have to run `git add .` then `git rebase --continue` after resolving conflicts 
