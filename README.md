@@ -56,15 +56,11 @@ Here is a change to tag
 - `git tag -n` show tags and message
 - `git push --tags` push tags
 # Rebasing 
-Practicing a rebase, the master branch already had an update to this file,((Ok so that didn't work, here is a change on line 1 from master and rebaseFeature)) but here is an update on the rebaseFeatureBranch. Now both the master branch and rebaseFeatureBranch have operated on the same file and there should be a conflict.
+Removing text (this represents first commit on branch f1)
+Adding some text (this represents second commit on branch f2)
+Finalized some changes (this represents third commit on branch f1)
 
-feature  
-feature 2  
-
-pushed feature 2 to master first, then pulled master, then rebased feature onto master
-feature 2, reordering initial features
-making changes to featureBranch1, based on ca29fb6
-
+Then, while on f1 I ran `git rebase f2` as if to say 'rebase changes of f2 onto f1'. A similar sequence below:
 
 - when you rebase with `git rebase master` when on a featureBranch based on older commit, HEAD is pointed at the master branch, while the changes you're rebasing onto master are the incoming changes. Further, the incoming changes, in the resolve conflicts view, come second, even if the work precedes what is already in master.
 - Also, have to run `git add .` then `git rebase --continue` after resolving conflicts 
