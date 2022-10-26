@@ -55,6 +55,9 @@ Here is a change to tag
 - `git tag -a v1.2 -m "learning how to tag things"` - make tag with message
 - `git tag -n` show tags and message
 - `git push --tags` push tags
+
+# Merging
+- move to branch you want to move changes into then run `git merge branchWhereChangesAreComingFrom`
 # Rebasing 
 #### Removing text (this represents first commit on branch f1)
 ![rebase1](/assets/rebase1.png)
