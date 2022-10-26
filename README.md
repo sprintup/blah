@@ -47,8 +47,13 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 ***
 Below are all my stupid notes as I did something. I would typically change this one readme to show a change as I worked through different problems locally and on the remote repo. 
 
-Practicing a rebase, the master branch already had an update to this file,((Ok so that didn't work, here is a change on line 1 from master and rebaseFeature)) but here is an update on the rebaseFeatureBranch. Now both the master branch and rebaseFeatureBranch have operated on the same file and there should be a conflict.
+
+# Tagging 
+Here is a change to tag
+- [Here is a great article on git tagging](https://devconnected.com/how-to-create-git-tags/)
+
 # Rebasing 
+Practicing a rebase, the master branch already had an update to this file,((Ok so that didn't work, here is a change on line 1 from master and rebaseFeature)) but here is an update on the rebaseFeatureBranch. Now both the master branch and rebaseFeatureBranch have operated on the same file and there should be a conflict.
 
 feature  
 feature 2  
