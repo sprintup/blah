@@ -56,9 +56,12 @@ Here is a change to tag
 - `git tag -n` show tags and message
 - `git push --tags` push tags
 # Rebasing 
-Removing text (this represents first commit on branch f1)
-Adding some text (this represents second commit on branch f2)
-Finalized some changes (this represents third commit on branch f1)
+#### Removing text (this represents first commit on branch f1)
+![rebase1](/assets/rebase1.png)
+#### Adding some text (this represents second commit on branch f2)
+![rebase2](/assets/rebase2.png)
+#### Finalized some changes (this represents third commit on branch f1)
+![rebase3](/assets/rebase3.png)
 
 Then, while on f1 I ran `git rebase f2` as if to say 'rebase changes of f2 onto f1'. A similar sequence below:
 
