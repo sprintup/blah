@@ -56,9 +56,11 @@ Here is a change to tag
 - `git tag -n` show tags and message
 - `git push --tags` push tags
 # Rebasing 
-Removing text
-Adding some text
-Finalized some changes
+Removing text (this represents first commit on branch f1)
+Adding some text (this represents second commit on branch f2)
+Finalized some changes (this represents third commit on branch f1)
+
+Then, while on f1 I ran `git rebase f2` as if to say 'rebase changes of f2 onto f1'. A similar sequence below:
 
 - when you rebase with `git rebase master` when on a featureBranch based on older commit, HEAD is pointed at the master branch, while the changes you're rebasing onto master are the incoming changes. Further, the incoming changes, in the resolve conflicts view, come second, even if the work precedes what is already in master.
 - Also, have to run `git add .` then `git rebase --continue` after resolving conflicts 
