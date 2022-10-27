@@ -82,6 +82,14 @@ Here is a change to tag
 - `git tag -n` show tags and message
 - `git push --tags` push tags
 
+# Tagging 
+Here is a change to tag
+- [Here is a great article on git tagging](https://devconnected.com/how-to-create-git-tags/)
+
+- `git tag -a v1.2 -m "learning how to tag things"` - make tag with message
+- `git tag -n` show tags and message
+- `git push --tags` push tags
+
 ***
 # Combining commits
 `git reset --soft HEAD~3` combines this many commits -> includes 3 commits total starting with HEAD
