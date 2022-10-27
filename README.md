@@ -65,6 +65,7 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 ![afterMerge](/assets/afterMerge.png) 
 
 # Rebasing 
+
 ### Before rebase on branch f1
 ![beforeRebasef1](/assets/beforeRebasef1.png) 
 - Sometimes the graph command can flip things
@@ -83,6 +84,14 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 # Tagging 
 Here is a change to tag
 - [Here is a great article on git tagging](https://devconnected.com/how-to-create-git-tags/)
+
+# Tagging 
+Here is a change to tag
+- [Here is a great article on git tagging](https://devconnected.com/how-to-create-git-tags/)
+
+- `git tag -a v1.2 -m "learning how to tag things"` - make tag with message
+- `git tag -n` show tags and message
+- `git push --tags` push tags
 
 - `git tag -a v1.2 -m "learning how to tag things"` - make tag with message
 - `git tag -n` show tags and message
