@@ -26,6 +26,7 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 
 ### Advanced
 - [ ] [Conquering Git: Advanced Training Guide](https://www.udemy.com/course/conquering-git-advanced-training-guide/) 
+- [ ] [Atlassian Advanced Git Tutorial](https://www.atlassian.com/git/tutorials/advanced-overview)
 - [ ] [Extend GitHub](https://github.com/marketplace?type=) 
 
 #### Devops
@@ -56,10 +57,31 @@ Here is a change to tag
 - `git tag -n` show tags and message
 - `git push --tags` push tags
 
+### Merging vs Rebasing
+- Merging preserves history exactly as it happened and merges it into one single timeline
+- rebasing creates new commit (changes history)
+- `git log --all --decorate --oneline --graph --max-count=5` shows all branchs graph history, limiting to last 5 commits; "dog -decorate -oneline -graph"
+![prepRebase](/assets/prepRebase.png) 
+
+##### On top you can see the history after a rebase. On the bottom the history after a merge
+![afterBoth](/assets/afterBoth.png) 
+
+- The process was create two subsequent commits on f1, then 2 commits on f2, then a third commit on f1 and run either a merge or rebase.
+
 # Merging
 - move to branch you want to move changes into then run `git merge branchWhereChangesAreComingFrom`
-# Rebasing 
+![afterMerge](/assets/afterMerge.png) 
 
+# Rebasing 
+f1 commit 1
+f1 commit 2
+f1 commit 3 (diverges)
+Before rebase on branch f1
+![beforeRebasef1](/assets/beforeRebasef1.png) 
+![beforeRebasef1b](/assets/beforeRebasef1b.png) 
+
+Before rebase on branch f2
+![beforeRebase](/assets/beforeRebase.png) 
 - when you rebase with `git rebase master` when on a featureBranch based on older commit, HEAD is pointed at the master branch, while the changes you're rebasing onto master are the incoming changes. Further, the incoming changes, in the resolve conflicts view, come second, even if the work precedes what is already in master.
 - Also, have to run `git add .` then `git rebase --continue` after resolving conflicts 
 - When conflicts have been resolved, you'll want to run `git push origin <featureBranch> --force-with-lease` without pulling. [article on --force-with-lease](https://itnext.io/git-force-vs-force-with-lease-9d0e753e8c41)
