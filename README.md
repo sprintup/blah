@@ -96,6 +96,7 @@ Here is a change to tag
 ## Adding tag to last commit
 - `git tag <tag_name> HEAD`   (for the last commit)
 - `git tag <tag_name> HEAD~1`  (for the commit before HEAD)
+- `git tag -a <tag_name> HEAD -m "message"`
 
 ***
 # Combining commits
