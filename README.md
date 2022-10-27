@@ -57,7 +57,7 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 - The original f2 branch for the rebase is not shown, but it wouldn't have the same SHAs as what is shown. 
 ![afterBoth](/assets/afterBoth.png) 
 
-# Merging
+# [Merging](https://git-scm.com/docs/git-merge)
 - move to branch you want to move changes into then run `git merge branchWhereChangesAreComingFrom`
 
 ### Before Merge
@@ -66,7 +66,7 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 - Note: had to reconcile conflicts to produce result
   - ![afterMerge](/assets/afterMerge.png) 
 
-# Rebasing 
+# [Rebasing](https://git-scm.com/docs/git-rebase)
 - Before rebase on branch f1:
   - ![beforeRebasef1](/assets/beforeRebasef1.png) 
   - Note: Sometimes the graph command can flip things:
