@@ -4,9 +4,6 @@ This is a total mess of a repo and you can break everything to learn how to use 
 
 There is no perfect way to use this repo, in fact a lot of it won't be useful but might just be an idea for how to proceed. I'll also include some resources to learn git and it might behoove you to make a similar repo of your own and try to do things like you can find in the commit history: 
 
-![mostRecentCommit](/assets/mostRecentCommit.png)
-![parentCommit](/assets/parentCommit.png)
-
 ### Total Beginner
 - [ ] [Git School](https://www.youtube.com/channel/UCshmCws1MijkZLMkPmOmzbQ) specifically, [start here](https://www.youtube.com/watch?v=OZEGnam2M9s&list=PLu-nSsOS6FRIg52MWrd7C_qSnQp3ZoHwW)
 - [ ] [Github Docs](https://docs.github.com/en)
@@ -46,18 +43,8 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 
 
 ***
-Below are all my stupid notes as I did something. I would typically change this one readme to show a change as I worked through different problems locally and on the remote repo. 
 
-
-# Tagging 
-Here is a change to tag
-- [Here is a great article on git tagging](https://devconnected.com/how-to-create-git-tags/)
-
-- `git tag -a v1.2 -m "learning how to tag things"` - make tag with message
-- `git tag -n` show tags and message
-- `git push --tags` push tags
-
-### Merging vs Rebasing
+# Merging vs Rebasing
 - Merging preserves history exactly as it happened and merges it into one single timeline
 - rebasing creates new commit (changes history)
 - `git log --all --decorate --oneline --graph --max-count=5` shows all branchs graph history, limiting to last 5 commits; "dog -decorate -oneline -graph"
@@ -89,6 +76,14 @@ Before rebase on branch f2
 
 - this is a [good article for rebasing](https://www.becomgitebetterprogrammer.com/git-rebase/#10_Once_you_finish_rebasing_DO_NOT_pull_but_push_immediately_to_remote)
 
+# Tagging 
+Here is a change to tag
+- [Here is a great article on git tagging](https://devconnected.com/how-to-create-git-tags/)
+
+- `git tag -a v1.2 -m "learning how to tag things"` - make tag with message
+- `git tag -n` show tags and message
+- `git push --tags` push tags
+
 ***
 # Combining commits
 `git reset --soft HEAD~3` combines this many commits -> includes 3 commits total starting with HEAD
@@ -105,3 +100,7 @@ Before rebase on branch f2
 
  # Amending commit 
  - `git commit --amend`
+
+# Exploring the repo
+![mostRecentCommit](/assets/mostRecentCommit.png)
+![parentCommit](/assets/parentCommit.png)
