@@ -48,9 +48,10 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 - Merging preserves history exactly as it happened and merges it into one single timeline
 - rebasing creates new commit (changes history)
 - `git log --all --decorate --oneline --graph --max-count=5` shows all branchs graph history, limiting to last 5 commits; "dog -decorate -oneline -graph"
+
 ![prepRebase](/assets/prepRebase.png) 
 
-##### On top you can see the history after a rebase. On the bottom the history after a merge
+##### In the below image, on top you can see the history after a rebase. On the bottom the history after a merge:
 ![afterBoth](/assets/afterBoth.png) 
 
 - The process was create two subsequent commits on f1, then 2 commits on f2, then a third commit on f1 and run either a merge or rebase.
@@ -60,21 +61,26 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 ![afterMerge](/assets/afterMerge.png) 
 
 # Rebasing 
-f1 commit 1
-f1 commit 2
-f1 commit 3 (diverges)
-Before rebase on branch f1
+- Before rebase on branch f1
 ![beforeRebasef1](/assets/beforeRebasef1.png) 
+- Sometimes the graph command can flip things
 ![beforeRebasef1b](/assets/beforeRebasef1b.png) 
+- for after see above under Merging vs Rebasing
 
-Before rebase on branch f2
-![beforeRebase](/assets/beforeRebase.png) 
+- another difference is which branch you start the operation on. During a rebase you start on the branch you would like to detatch from the commit that is the common origin (origin commit that other branch you want to move the commits onto has in common) and write the branch you're moving the commmits onto. For instance if I'm trying to move f2 commits onto f1, I would start on f2 and write `git rebase f1`
 - when you rebase with `git rebase master` when on a featureBranch based on older commit, HEAD is pointed at the master branch, while the changes you're rebasing onto master are the incoming changes. Further, the incoming changes, in the resolve conflicts view, come second, even if the work precedes what is already in master.
 - Also, have to run `git add .` then `git rebase --continue` after resolving conflicts 
 - When conflicts have been resolved, you'll want to run `git push origin <featureBranch> --force-with-lease` without pulling. [article on --force-with-lease](https://itnext.io/git-force-vs-force-with-lease-9d0e753e8c41)
 - If it drops into an interactive rebase, update the commit message and maybe add another commit with additional changes
 
-- this is a [good article for rebasing](https://www.becomgitebetterprogrammer.com/git-rebase/#10_Once_you_finish_rebasing_DO_NOT_pull_but_push_immediately_to_remote)
+
+# Tagging 
+Here is a change to tag
+- [Here is a great article on git tagging](https://devconnected.com/how-to-create-git-tags/)
+
+- `git tag -a v1.2 -m "learning how to tag things"` - make tag with message
+- `git tag -n` show tags and message
+- `git push --tags` push tags
 
 # Tagging 
 Here is a change to tag
