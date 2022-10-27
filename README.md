@@ -58,21 +58,32 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 
 # Merging
 - move to branch you want to move changes into then run `git merge branchWhereChangesAreComingFrom`
+
+### Before Merge
+![prepRebase](/assets/prepRebase.png) 
+### After Merge
 ![afterMerge](/assets/afterMerge.png) 
 
 # Rebasing 
-- Before rebase on branch f1
+
+### Before rebase on branch f1
 ![beforeRebasef1](/assets/beforeRebasef1.png) 
 - Sometimes the graph command can flip things
 ![beforeRebasef1b](/assets/beforeRebasef1b.png) 
-- for after see above under Merging vs Rebasing
-
+## Operation
 - another difference is which branch you start the operation on. During a rebase you start on the branch you would like to detatch from the commit that is the common origin (origin commit that other branch you want to move the commits onto has in common) and write the branch you're moving the commmits onto. For instance if I'm trying to move f2 commits onto f1, I would start on f2 and write `git rebase f1`
 - when you rebase with `git rebase master` when on a featureBranch based on older commit, HEAD is pointed at the master branch, while the changes you're rebasing onto master are the incoming changes. Further, the incoming changes, in the resolve conflicts view, come second, even if the work precedes what is already in master.
 - Also, have to run `git add .` then `git rebase --continue` after resolving conflicts 
 - When conflicts have been resolved, you'll want to run `git push origin <featureBranch> --force-with-lease` without pulling. [article on --force-with-lease](https://itnext.io/git-force-vs-force-with-lease-9d0e753e8c41)
 - If it drops into an interactive rebase, update the commit message and maybe add another commit with additional changes
+### After rebase see above red line (below red line is example of merge)
+![afterBoth](/assets/afterBoth.png) 
 
+***
+
+# Tagging 
+Here is a change to tag
+- [Here is a great article on git tagging](https://devconnected.com/how-to-create-git-tags/)
 
 # Tagging 
 Here is a change to tag
@@ -81,10 +92,6 @@ Here is a change to tag
 - `git tag -a v1.2 -m "learning how to tag things"` - make tag with message
 - `git tag -n` show tags and message
 - `git push --tags` push tags
-
-# Tagging 
-Here is a change to tag
-- [Here is a great article on git tagging](https://devconnected.com/how-to-create-git-tags/)
 
 - `git tag -a v1.2 -m "learning how to tag things"` - make tag with message
 - `git tag -n` show tags and message
