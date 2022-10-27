@@ -72,9 +72,10 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
   - Note: Sometimes the graph command can flip things:
     - ![beforeRebasef1b](/assets/beforeRebasef1b.png) 
 
-### After rebase see above red line (below red line is example of merge)
-![afterBoth](/assets/afterBoth.png) 
-## Merge Operation
+- After rebase see above red line (below red line is example of merge)
+  - ![afterBoth](/assets/afterBoth.png) 
+
+## Rebase Operation
 - another difference is which branch you start the operation on. During a rebase you start on the branch you would like to detatch from the commit that is the common origin (origin commit that other branch you want to move the commits onto has in common) and write the branch you're moving the commmits onto. For instance if I'm trying to move f2 commits onto f1, I would start on f2 and write `git rebase f1`
 - when you rebase with `git rebase master` when on a featureBranch based on older commit, HEAD is pointed at the master branch, while the changes you're rebasing onto master are the incoming changes. Further, the incoming changes, in the resolve conflicts view, come second, even if the work precedes what is already in master.
 - Also, have to run `git add .` then `git rebase --continue` after resolving conflicts 
