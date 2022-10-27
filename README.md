@@ -45,8 +45,8 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 ***
 
 # Merging vs Rebasing
-- Merging preserves history exactly as it happened and merges it into one single timeline
-- rebasing creates new commit (changes history)
+- Merging preserves history exactly as it happened (same SHAs) and merges it into one single timeline
+- rebasing creates new commit (SHAs for changes in history)
 - `git log --all --decorate --oneline --graph --max-count=5` shows all branchs graph history, limiting to last 5 commits; "dog -decorate -oneline -graph"
 
 ![prepRebase](/assets/prepRebase.png) 
@@ -62,6 +62,7 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 ### Before Merge
 ![prepRebase](/assets/prepRebase.png) 
 ### After Merge
+- Note: had to reconcile conflicts to produce result
 ![afterMerge](/assets/afterMerge.png) 
 
 # Rebasing 
@@ -79,8 +80,6 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 - Also, have to run `git add .` then `git rebase --continue` after resolving conflicts 
 - When conflicts have been resolved, you'll want to run `git push origin <featureBranch> --force-with-lease` without pulling. [article on --force-with-lease](https://itnext.io/git-force-vs-force-with-lease-9d0e753e8c41)
 - If it drops into an interactive rebase, update the commit message and maybe add another commit with additional changes
-### After rebase see above red line (below red line is example of merge)
-![afterBoth](/assets/afterBoth.png) 
 
 ***
 
