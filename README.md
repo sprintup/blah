@@ -60,6 +60,7 @@ Here is a change to tag
 - move to branch you want to move changes into then run `git merge branchWhereChangesAreComingFrom`
 # Rebasing 
 f1 branch commit 1
+f1 branch commit 2
 
 - when you rebase with `git rebase master` when on a featureBranch based on older commit, HEAD is pointed at the master branch, while the changes you're rebasing onto master are the incoming changes. Further, the incoming changes, in the resolve conflicts view, come second, even if the work precedes what is already in master.
 - Also, have to run `git add .` then `git rebase --continue` after resolving conflicts 
