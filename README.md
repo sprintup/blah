@@ -49,12 +49,12 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 - rebasing creates new commit (SHAs for changes in history)
 - `git log --all --decorate --oneline --graph --max-count=5` shows all branchs graph history, limiting to last 5 commits; "dog -decorate -oneline -graph"
 
+##### This is what the setup looks like
+- The process was create two subsequent commits on f1, then 2 commits on f2, then a third commit on f1 and run either a merge or rebase.
 ![prepRebase](/assets/prepRebase.png) 
 
 ##### In the below image, on top you can see the history after a rebase. On the bottom the history after a merge:
 ![afterBoth](/assets/afterBoth.png) 
-
-- The process was create two subsequent commits on f1, then 2 commits on f2, then a third commit on f1 and run either a merge or rebase.
 
 # Merging
 - move to branch you want to move changes into then run `git merge branchWhereChangesAreComingFrom`
