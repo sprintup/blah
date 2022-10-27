@@ -85,7 +85,7 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 ***
 
 # Tagging 
-Here is a change to tag
+
 - [Here is a great article on git tagging](https://devconnected.com/how-to-create-git-tags/)
 
 ## Basic tagging
