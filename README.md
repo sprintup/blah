@@ -60,7 +60,7 @@ Here is a change to tag
 ### Merging vs Rebasing
 - Merging preserves history exactly as it happened and merges it into one single timeline
 - rebasing creates new commit (changes history)
-- `git log --all --decorate --oneline --graph --max-count=5` shows all branchs graph history, limiting to last 5 commits
+- `git log --all --decorate --oneline --graph --max-count=5` shows all branchs graph history, limiting to last 5 commits; "dog -decorate -oneline -graph"
 ![prepRebase](/assets/prepRebase.png) 
 
 # Merging
@@ -70,7 +70,13 @@ Here is a change to tag
 # Rebasing 
 f1 commit 1
 f1 commit 2
+f1 commit 3 (diverges)
+Before rebase on branch f1
+![beforeRebasef1](/assets/beforeRebasef1.png) 
+![beforeRebasef1b](/assets/beforeRebasef1b.png) 
 
+Before rebase on branch f2
+![beforeRebase](/assets/beforeRebase.png) 
 - when you rebase with `git rebase master` when on a featureBranch based on older commit, HEAD is pointed at the master branch, while the changes you're rebasing onto master are the incoming changes. Further, the incoming changes, in the resolve conflicts view, come second, even if the work precedes what is already in master.
 - Also, have to run `git add .` then `git rebase --continue` after resolving conflicts 
 - When conflicts have been resolved, you'll want to run `git push origin <featureBranch> --force-with-lease` without pulling. [article on --force-with-lease](https://itnext.io/git-force-vs-force-with-lease-9d0e753e8c41)
