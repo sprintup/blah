@@ -26,6 +26,7 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 
 ### Advanced
 - [ ] [Conquering Git: Advanced Training Guide](https://www.udemy.com/course/conquering-git-advanced-training-guide/) 
+- [ ] [Atlassian Advanced Git Tutorial](https://www.atlassian.com/git/tutorials/advanced-overview)
 - [ ] [Extend GitHub](https://github.com/marketplace?type=) 
 
 #### Devops
@@ -56,11 +57,22 @@ Here is a change to tag
 - `git tag -n` show tags and message
 - `git push --tags` push tags
 
+### Merging vs Rebasing
+- Merging preserves history exactly as it happened and merges it into one single timeline
+- rebasing creates new commit (changes history)
+![prepRebase](/assets/prepRebase.png) 
+
 # Merging
 - move to branch you want to move changes into then run `git merge branchWhereChangesAreComingFrom`
+
+
 # Rebasing 
+
 f1 branch commit 1
 f1 branch commit 2
+f1 branch commit 3 (goes ahead of f2)
+
+- `git log --all --decorate --oneline --graph --max-count=5` shows all branchs graph history, limiting to last 5 commits
 
 - when you rebase with `git rebase master` when on a featureBranch based on older commit, HEAD is pointed at the master branch, while the changes you're rebasing onto master are the incoming changes. Further, the incoming changes, in the resolve conflicts view, come second, even if the work precedes what is already in master.
 - Also, have to run `git add .` then `git rebase --continue` after resolving conflicts 
