@@ -54,6 +54,7 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 ![prepRebase](/assets/prepRebase.png) 
 
 ##### In the below image, on top you can see the history after a rebase. On the bottom the history after a merge:
+- The original f2 branch for the rebase is not shown, but it wouldn't have the same SHAs as what is shown. 
 ![afterBoth](/assets/afterBoth.png) 
 
 # Merging
