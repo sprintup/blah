@@ -64,7 +64,7 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 ![prepRebase](/assets/prepRebase.png) 
 ### After Merge
 - Note: had to reconcile conflicts to produce result
-![afterMerge](/assets/afterMerge.png) 
+  - ![afterMerge](/assets/afterMerge.png) 
 
 # Rebasing 
 - Before rebase on branch f1:
