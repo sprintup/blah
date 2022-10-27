@@ -88,9 +88,14 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 Here is a change to tag
 - [Here is a great article on git tagging](https://devconnected.com/how-to-create-git-tags/)
 
+## Basic tagging
 - `git tag -a v1.2 -m "learning how to tag things"` - make tag with message
 - `git tag -n` show tags and message
 - `git push --tags` push tags
+
+## Adding tag to last commit
+- `git tag <tag_name> HEAD`   (for the last commit)
+- `git tag <tag_name> HEAD~1`  (for the commit before HEAD)
 
 ***
 # Combining commits
