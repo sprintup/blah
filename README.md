@@ -67,8 +67,10 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 ![afterMerge](/assets/afterMerge.png) 
 
 # Rebasing 
-- Before rebase on branch f1:![beforeRebasef1](/assets/beforeRebasef1.png) 
-  - Note: Sometimes the graph command can flip things:![beforeRebasef1b](/assets/beforeRebasef1b.png) 
+- Before rebase on branch f1:
+<br />![beforeRebasef1](/assets/beforeRebasef1.png) 
+    - Note: Sometimes the graph command can flip things:
+    <br />![beforeRebasef1b](/assets/beforeRebasef1b.png) 
 
 ### After rebase see above red line (below red line is example of merge)
 ![afterBoth](/assets/afterBoth.png) 
