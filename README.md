@@ -65,10 +65,12 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 ![afterMerge](/assets/afterMerge.png) 
 
 # Rebasing 
+
 ### Before rebase on branch f1
 ![beforeRebasef1](/assets/beforeRebasef1.png) 
 - Sometimes the graph command can flip things
 ![beforeRebasef1b](/assets/beforeRebasef1b.png) 
+
 ### After rebase see above red line (below red line is example of merge)
 ![afterBoth](/assets/afterBoth.png) 
 ## Merge Operation
@@ -77,6 +79,8 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 - Also, have to run `git add .` then `git rebase --continue` after resolving conflicts 
 - When conflicts have been resolved, you'll want to run `git push origin <featureBranch> --force-with-lease` without pulling. [article on --force-with-lease](https://itnext.io/git-force-vs-force-with-lease-9d0e753e8c41)
 - If it drops into an interactive rebase, update the commit message and maybe add another commit with additional changes
+### After rebase see above red line (below red line is example of merge)
+![afterBoth](/assets/afterBoth.png) 
 
 ***
 
