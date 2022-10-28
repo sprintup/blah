@@ -6,20 +6,28 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 
 ### Total Beginner
 - [ ] [Git School](https://www.youtube.com/channel/UCshmCws1MijkZLMkPmOmzbQ) specifically, [start here](https://www.youtube.com/watch?v=OZEGnam2M9s&list=PLu-nSsOS6FRIg52MWrd7C_qSnQp3ZoHwW)
+- [ ] [Intro to Git in 16 mins](https://vickyikechukwu.hashnode.dev/introduction-to-git-in-16-minutes?utm_source=tldrnewsletter)
+- [ ] [9 Beginner Friendly Tutorials](https://www.deployhq.com/git)
+- [ ] [Writing better commit messages](https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/)
 - [ ] [Github Docs](https://docs.github.com/en)
 - [ ] [git scm](https://git-scm.com/docs)
-- [ ] https://github.community/ 
+- [ ] [Github Community](https://github.community/)
 - [ ] [Git Explorer](gitexplorer.com)
 #### Markdown 
-- [ ] https://guides.github.com/features/mastering-markdown/
-- [ ] Www.markdownguide.org
-- [ ] https://medium.com/swlh/create-awesome-git-readme-profile-84efa0bcda3b
-- [ ] https://dev.to/github/10-standout-github-profile-readmes-h2o 
-- [ ] https://docs.github.com/en/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites 
+- [ ] [Basic writing and formatting syntax](https://guides.github.com/features/mastering-markdown/)
+- [ ] [The Markdown Guide](https://www.markdownguide.org/cheat-sheet/)
+- [ ] [Create Awesome Git readMe Profile](https://medium.com/swlh/create-awesome-git-readme-profile-84efa0bcda3b)
+- [ ] [10 Standout GitHub Profile READMEs](https://dev.to/github/10-standout-github-profile-readmes-h2o)
+- [ ] [Publishing sources for GitHub Pages sites](https://docs.github.com/en/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites)
+- [ ] [Awesome Developer Profile](https://github.com/coderjojo/creative-profile-readme)
 
 ### Intermediate 
 - [ ] [GitPals](https://www.gitpals.com)
-- [ ] https://www.becomebetterprogrammer.com/git-rebase
+- [ ] [Take advantage of Git Rebase](https://about.gitlab.com/blog/2022/10/06/take-advantage-of-git-rebase/)
+- [ ] [How to rebase in Git: Explained Step by Step](https://www.becomebetterprogrammer.com/git-rebase)
+- [ ] [Effective Git for Solo Developer](https://mikkel.ca/blog/git-is-my-buddy-effective-solo-developer/?utm_source=tldrnewsletter)
+- [ ] [Github 1s](https://github.com/conwnet/github1s)
+- [ ] [Git ignore templates](https://github.com/github/gitignore)
 
 ### Advanced
 - [ ] [Conquering Git: Advanced Training Guide](https://www.udemy.com/course/conquering-git-advanced-training-guide/) 
@@ -31,14 +39,16 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 - [ ] [About Gitlab](https://about.gitlab.com/)
 - [ ] https://channel9.msdn.com/Shows/Azure-Friday/Learn-how-to-deploy-NET-Core-apps-to-Azure-with-GitHub-Actions 
 - [ ] [GitHub Actions](https://docs.github.com/en/actions)
+- [ ] [DevSec Ops](https://github.com/sottlmarek/DevSecOps?utm_source=tldrnewsletter)
 
 ### Other resources
-- [ ] https://gist.github.com/
+- [ ] [Gist](https://gist.github.com/)
 - [ ] [Pluralsight Course on DevOps with Github and Azure: Implementing CI/CD with GitHub Actions](https://app.pluralsight.com/id/signin/?redirectTo=https%3A%2F%2Fapp.pluralsight.com%2Flibrary%2Fcourses%2F7d044527-6919-4968-8c0a-53ac4881968a%2Ftable-of-contents)
-- [ ] https://www.gitguardian.com/
-- [ ] https://github.blog/2020-09-30-code-scanning-is-now-available/
-- [ ] https://github.blog/2020-09-17-github-cli-1-0-is-now-available/
-- [ ] https://www.gitkraken.com/ 
+- [ ] [Git Guardian](https://www.gitguardian.com/)
+- [ ] [Code Scanning](https://github.blog/2020-09-30-code-scanning-is-now-available/)
+- [ ] [Github Cli 1.0](https://github.blog/2020-09-17-github-cli-1-0-is-now-available/)
+- [ ] [GitKraken Client](https://www.gitkraken.com/)
+- [ ] [Lazy Git Client](https://github.com/jesseduffield/lazygit)
 
 
 
@@ -67,13 +77,13 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
   - ![afterMerge](/assets/afterMerge.png) 
 
 # [Rebasing](https://git-scm.com/docs/git-rebase)
-- Before rebase on branch f1:
-  - ![beforeRebasef1](/assets/beforeRebasef1.png) 
+### Before rebase on branch f1:
+- ![beforeRebasef1](/assets/beforeRebasef1.png) 
   - Note: Sometimes the graph command can flip things:
-    - ![beforeRebasef1b](/assets/beforeRebasef1b.png) 
+  - ![beforeRebasef1b](/assets/beforeRebasef1b.png) 
 
-- After rebase see above red line (below red line is example of merge)
-  - ![afterBoth](/assets/afterBoth.png) 
+### After rebase see above red line (below red line is example of merge)
+- ![afterBoth](/assets/afterBoth.png) 
 
 ## Rebase Operation
 - another difference is which branch you start the operation on. During a rebase you start on the branch you would like to detatch from the commit that is the common origin (origin commit that other branch you want to move the commits onto has in common) and write the branch you're moving the commmits onto. For instance if I'm trying to move f2 commits onto f1, I would start on f2 and write `git rebase f1`
