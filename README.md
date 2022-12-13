@@ -97,6 +97,7 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 # Tagging 
 
 - [Here is a great article on git tagging](https://devconnected.com/how-to-create-git-tags/)
+- [Another article on deleting tags](https://devconnected.com/how-to-delete-local-and-remote-tags-on-git/)
 
 ## Basic tagging
 - `git tag -a v1.2 -m "learning how to tag things"` - make tag with message
