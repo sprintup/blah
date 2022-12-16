@@ -57,7 +57,7 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 # Merging vs Rebasing
 - Merging preserves history exactly as it happened (same SHAs) and merges it into one single timeline
 - rebasing creates new commit (SHAs for changes in history)
-- `git log --all --decorate --oneline --graph --max-count=5` shows all branchs graph history, limiting to last 5 commits; "dog -decorate -oneline -graph"
+- `git log --all --decorate --oneline --graph --max-count=5` shows all branchs graph history, limiting to last 5 commits; 
 
 ##### This is what the setup looks like:
 - The process was create two subsequent commits on branch f1, then 2 commits on branch f2, then a third commit on f1 and run either a merge or rebase.
