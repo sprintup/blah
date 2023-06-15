@@ -1,7 +1,5 @@
 # Intro
-
-Josephs changes
-stephen made some changes on feature branch
+master
 
 
 This is a total mess of a repo and you can break everything to learn how to use git. 
