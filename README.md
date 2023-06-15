@@ -1,5 +1,5 @@
 # Intro
-actually changes made on f2 that were rebased into f1
+Josephs changes
 
 This is a total mess of a repo and you can break everything to learn how to use git. 
 
