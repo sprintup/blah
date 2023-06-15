@@ -1,8 +1,5 @@
 # Intro
 
-f1
-f2 changes
-changes to rebase
 
 This is a total mess of a repo and you can break everything to learn how to use git. 
 
