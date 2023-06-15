@@ -2,7 +2,7 @@
 
 
 merge
-
+second commit on merge-branch
 
 rebase
 changes from master to merge
