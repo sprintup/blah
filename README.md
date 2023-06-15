@@ -1,5 +1,5 @@
 # Intro
-changes that will be merged into f2 from f1
+actually changes made on f2 that were rebased into f1
 
 This is a total mess of a repo and you can break everything to learn how to use git. 
 
