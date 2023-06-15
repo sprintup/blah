@@ -1,5 +1,5 @@
 # Intro
-
+f1
 This is a total mess of a repo and you can break everything to learn how to use git. 
 
 There is no perfect way to use this repo, in fact a lot of it won't be useful but might just be an idea for how to proceed. I'll also include some resources to learn git and it might behoove you to make a similar repo of your own and try to do things like you can find in the commit history: 
