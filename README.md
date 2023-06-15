@@ -1,11 +1,6 @@
 # Intro
 
 
-merge
-
-
-rebase
-changes from master to merge
 
 
 
