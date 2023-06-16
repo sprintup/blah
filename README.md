@@ -138,14 +138,43 @@ The right terminal is for running the majority of commands. Mark off the command
     - changes are alreadyhere from before and we just need to run a rebase.
 
 - [ ] `git rebase master`
-    - When you run the command `git rebase`, you are saying "reapply the commits from the current branch onto the branch I specify." In this case, we're applying the changes "changes made on rebase branch" onto __ master__, since we specified master.
+    - When you run the command `git rebase`, you are saying **"reapply the commits from the current branch onto the branch I specify."** In this case, we're applying the changes "changes made on rebase branch" onto __ master__, since we specified master.
     - The special file with the conflicts may appear. Once you resolve the conflicts, *close this file* and proceed to the next command.
 
 - [ ] `git add .`
 
 - [ ] `git rebase --continue`
+    - Now you'll see "changes made on rebase branch" on top, with master one commit behind. HEAD is pointed at __rebase-branch__ of the latest commit. 
+    - *** Compare this graph to the graph mentioned above to understand the difference between rebase and merge ***
+    - To bring __master__ to the current state of __rebase-branch__ (which now has "changes on master before rebase") continue with the following commands
 
+- [ ] `git checkout master`
 
+- [ ] `git rebase rebase-branch`
+    - Remember rebase means "reapply the commits from the current branch onto the branch I specify." Since there are no new commits to move into __rebase-branch__, it has nothing to 'pick up and rebase' kinda like a fat snowman picking up his body and putting on another branch, so it'll just move the pointer from the commit "changes on master before rebase" to "changes made on rebase branch".
+    - As a reminder, merge means "merge the specified branch into the current branch."
+    - Some final notes, the way git determines if the how many commits ahead/behind a branch is from another is by comparing the SHAs, so if the SHAs are different, it'll think the history is different, even if the changes are the same. This means you'll have to account for this if you ammend commits, which changes the SHAs. 
+
+### What's the difference between a merge and rebase?
+Both `merge` and `rebase` in Git are designed to integrate changes from one branch into another, but they do it in different ways and the resulting history will look different.
+
+#### Here's how they work:
+
+Merge: git merge takes the contents of a source branch and integrates it with the target branch. When you merge a branch, it takes the contents of that branch and merges it with your current branch all at once. This creates a new "merge commit" in the history that has two parents, maintaining the historical context of the branch.
+
+Rebase: git rebase moves or combines a sequence of commits to a new base commit. Essentially, it's like saying "I want to base my changes on what everybody else has already done." When you rebase, Git takes the changes made in each commit of your current branch that are not in the upstream branch and saves them away temporarily. It then applies the changes of the upstream branch to your base commit, and re-applies your changes on top of that, one by one. This results in a linear history.
+
+#### Here are the key differences:
+
+History: merge preserves the history of your commits exactly as they were, while rebase rewrites the commit history in order to produce a more linear project history.
+
+Merge Conflicts: In case of overlapping changes, with merge, you'll only need to resolve conflicts once. With rebase, conflicts need to be resolved for each commit separately, as changes are applied one by one.
+
+Traceability: Merge keeps all the past history of commits, making it easy to see when and how changes were made. Rebase provides a more simplified and linear project history, without the noise of non-significant commits.
+
+Safety and Collaboration: merge is a safe operation that won't alter existing history, making it a good choice for public or collaborative branches. rebase alters commit history, which can be problematic for anyone else who's already using the existing branches, so it's generally recommended for cleaning up local branches.
+
+In a nutshell, if you want to combine your changes with another branch while preserving chronological commit history, use merge. If you want to make your feature branch up to date with the latest code from the target branch, while maintaining a clean, linear history, use rebase.
 
 ## Additional resources
 ### Total Beginner
