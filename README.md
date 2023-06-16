@@ -93,18 +93,18 @@ The right terminal is for running the majority of commands. Mark off the command
 - [X] `git checkout master`
     - remember to check the checkboxes as you go (remember to save the file too), and keep producing new graphs to see what changes.
   
-- [ ] `git commit -am "changes on master"`
+- [X] `git commit -am "changes on master"`
     - This should make it so master is back in the first position and __HEAD__ should be pointed at master, because it's the currently checked out branch. Both __merge-branch__ and __master__ can't fit on the same line, so __merge-branch__ is indented. However if you run `git rev-list --count merge-branch..master` again, it should show 1, which means __master__ has one commit that __merge-branch__ does not. Comparitively, if you reverse the command like `git rev-list --count master..merge-branch`, it should show that __merge-branch__ also has one commit that master does not. This means that "histories have diverged" and we need to rectify it with either a rebase or a merge. 
     - Since we're working on the __merge-branch__, we'll perform a merge. 
   
-- [ ] `git merge merge-branch` from master
+- [X] `git merge merge-branch` from master
     - This command will replay changes made on __merge-branch__ since it diverged from __master__(one commit ago) until the current commit of __merge-branch__. It does this on top of master. ![rebase](/assets/tutorial/merge.png) 
     - This should result in a conflict, where the changes for HEAD (master) are listed on top, even though we added them second. This means we need to move them down, below the merge branch and remove the symbols. 
     - Notice the conflicts appear in a special file, where the title is marked with an exlamation point and the terminal mentions 'Merging'. Since we're currently resolving conflicts, we'll need to close this file and add this merge of both files as a new commit.
     - What happens if you start on __merge-branch__ and run `git merge master`? 
       - When you issue the command git merge, you are saying *** "merge the specified branch into the current branch." *** In other words, you are bringing changes from the specified branch into the one currently checked out.
   
-- [ ] `git commit -am "merged merge-branch into master"`
+- [X] `git commit -am "merged merge-branch into master"`
     - When you run the graph, you should see HEAD pointed at master as the most recent commit and __merge-branch__ one commit behind. We'll fix this, but first...
     - `git rev-list --count master..merge-branch` will give you the number of commits that are in the__merge-branch__but not in __master__. 
       - Should be 0, because we merged the changes of __merge-branch__ into master.
@@ -116,9 +116,9 @@ The right terminal is for running the majority of commands. Mark off the command
       - *** Comparing this to the same graph in the below rebase is key to understanding the difference between a merge and rebase ***
     - Now if you wanted __merge-branch__ to be at the same commit, you would want to merge changes from __master__ into __merge-branch__, which would require checking out __merge-branch__ and running `git merge master`. Then look at the graph and you'll see both branches on the same commit.
 
-- [ ] `git checkout master`
+- [X] `git checkout master`
 
-- [ ] `git commit -am "rebase start"`
+- [X] `git commit -am "rebase start"`
     - Remember to check the box to trigger a change to the file. 
 
 - [ ] `git checkout -b rebase-branch`
