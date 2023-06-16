@@ -1,12 +1,42 @@
 # Intro
 
-
-
-
-
 This is a total mess of a repo and you can break everything to learn how to use git. 
 
 There is no perfect way to use this repo, in fact a lot of it won't be useful but might just be an idea for how to proceed. I'll also include some resources to learn git and it might behoove you to make a similar repo of your own and try to do things like you can find in the commit history: 
+
+
+## Tutorial
+
+We're going to learn how to merge first, then rebase. 
+Open up two terminals side-by-side and run these commands (ask ChatGPT what they do if needed). I'm assuming we're starting with only one branch, master. 
+Terminology 
+- "history" : refers to the sequence of commits made in a repository over time. Each commit represents a set of changes made to the project and is linked to the commit that came before it. This linking forms a chain of commits, which we call the commit history or simply "history".
+- "upstream" : is used to refer to the main branch or the original repository from which you cloned or forked. More specifically, it often refers to the branch that you're tracking in the original repository.
+
+#### Left terminal
+The left terminal is meant to only show graphs of history to become accustomed to how it looks.
+- `git checkout master`
+    - To simplify things, make sure 'HEAD' is always pointed at master in the left terminal. This means *** run `git checkout master` in the right terminal before running the next command in the left terminal. *** 
+- `git log --pretty=oneline --graph --decorate --max-count=5 --all` -> only run this in the left terminal, one per time between all the right terminal commands
+  - Notice 'HEAD' which is the latest commit of the currently checked out branch. This is one way of knowing where you're at.
+  - The latest commits across all branches will appear first, so if HEAD is not on the top line, there are commits that have occured more recently than the currently checked out branch. 
+  - You can simply press up to rerun the command, instead of having to type it out every time. 
+
+#### Right terminal
+The right terminal is for running the majority of commands. 
+*** Run only the commands in the top level of this bullet list. Nested commands are just explainations. Also, [Read the docs](https://git-scm.com/docs)*** Nested commands depend on the context of parent commands in this tree. 
+- `git status` -> good to run anytime, shows status. 
+  - `git commit -am "commit message"` is a shortcut combination to stage and commit your changes. (`git add .` and `git commit -m "commit message"`)
+    - `git add --all` is a way to stage your changes. 
+      - `git commit --amend` is a way to change the commit message of the previous commit, but this will create a new SHA (changes history)
+  - To throw away 'Changes not staged for commit' run `git checkout .`
+  - To throw away changes that *have* been staged (i.e. after using `git add .` shortcut or `git add --all` for all files) run `git reset` (optional `--soft` `--hard`)
+- `git checkout master`
+- `git checkout -b merge-branch`
+
+
+![mostRecentCommit](/assets/mostRecentCommit.png) 
+[rebase docs](https://git-scm.com/docs/git-rebase)
 
 ### Total Beginner
 - [ ] [Git School](https://www.youtube.com/channel/UCshmCws1MijkZLMkPmOmzbQ) specifically, [start here](https://www.youtube.com/watch?v=OZEGnam2M9s&list=PLu-nSsOS6FRIg52MWrd7C_qSnQp3ZoHwW)
