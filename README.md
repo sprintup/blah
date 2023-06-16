@@ -26,16 +26,32 @@ Terminology
       - Attached HEAD: This is the usual state of HEAD when it points to the tip (the most recent commit) of the current branch.
 - "commit" is a snapshot of your work that you've saved to your repository. *** Every commit is uniquely identified by a SHA-1 hash *** which represents a specific set of changes. Common SHAs mean a common history between branches. When SHAs change due to a command, that means the history has changed. 
   - "history" : refers to the sequence of commits made in a repository over time. Each commit represents a set of changes made to the project and is linked to the commit that came before it. This linking forms a chain of commits, which we call the commit history or simply "history".
+    - "diverge" : when Git tells you that histories have diverged, it means that there are commits in your current branch that aren't in the branch you're trying to merge with, or pull from, and vice versa. Divergent histories can be rectified with either a rebase or a merge.
+      - [git-rebase](https://git-scm.com/docs/git-rebase) - Reapply commits on top of another base tip
+        - Base: The base, in the context of a rebase, is the commit on which you want to base your work on. When you run a rebase operation, Git finds the *common ancestor* of the current branch and the one you're rebasing onto, then applies each of the changes from your branch onto the head of the branch you're rebasing onto. This base commit is effectively the starting point of your changes.
+        - Tip: The tip refers to the most recent commit of the branch, also known as the *** "HEAD" ***. In the context of a rebase, it means the latest commit in the branch that you're trying to rebase.
+      ![rebase](/assets/tutorial/rebase.png) 
+      - [git-merge](https://git-scm.com/docs/git-merge) - Join two or more development histories together
+        - __after a merge, do you have to add a commit?__
+          - In Git, when you perform a merge, a new commit is automatically created if the merge involves divergent paths from the base commit (the common ancestor commit). This new commit is called a "merge commit," and it has multiple parent commits.
+          - When you run git merge branchname, Git attempts to automatically merge the changes from the specified branch into the current branch. If the changes don't conflict, a new commit (the merge commit) is automatically created, and you don't need to do anything else.
+          - If there are conflicts between the branches that Git can't resolve on its own, Git will pause the merge and tell you which files have conflicts. You'll have to manually edit those files to resolve the conflicts, and then stage the resolved files with git add. After resolving all conflicts and staging the changes, you run git commit to complete the merge with a new commit. This commit is also a merge commit, but its creation was not automatic, because manual conflict resolution was involved.
+          - So, after a merge, you don't usually have to add a new commit yourself, because Git does it for you. The exception is when there are merge conflicts that need to be resolved manually. After resolving these conflicts, you will have to complete the merge commit yourself.
+      ![rebase](/assets/tutorial/merge.png) 
+    - "conflict" : Conflicts in Git occur when two or more changes clash with each other, and Git is unable to determine which change should take precedence. This typically happens when multiple developers are working on the same project simultaneously, and their changes overlap. Here's an example of what a conflict might look like:
+```
+<<<<<<< HEAD
+This is some text from the current branch.
+=======
+This is some different text from the branch being merged.
+>>>>>>> branch-being-merged
 
-
-- [git-rebase](https://git-scm.com/docs/git-rebase) - Reapply commits on top of another base tip
-  - Base: The base, in the context of a rebase, is the commit on which you want to base your work on. When you run a rebase operation, Git finds the *common ancestor* of the current branch and the one you're rebasing onto, then applies each of the changes from your branch onto the head of the branch you're rebasing onto. This base commit is effectively the starting point of your changes.
-  - Tip: The tip refers to the most recent commit of the branch, also known as the *** "HEAD" ***. In the context of a rebase, it means the latest commit in the branch that you're trying to rebase.
-![mostRecentCommit](/assets/mostRecentCommit.png) 
-
-
-- [git-merge](https://git-scm.com/docs/git-merge) - Join two or more development histories together
-
+```
+    - "conflict" : Conflicts in Git occur when two or more changes clash with each other, and Git is unable to determine which change should take precedence. This typically happens when multiple developers are working on the same project simultaneously, and their changes overlap. Here's an example of what a conflict might look like:
+      - The `<<<<<<< HEAD` line marks the beginning of the conflicting section.
+      - The `=======` line separates the conflicting changes.
+      - The `>>>>>>>` branch-being-merged line marks the end of the conflicting section.
+    - To resolve the conflict, you need to manually edit the file to choose one change or the other and delete the added symbols. After you've resolved the conflict, you use git add filename to mark the file as resolved, and then git commit to finish the merge.
 
 #### Left terminal
 The left terminal is meant to only show graphs of history to become accustomed to how it looks.
@@ -56,6 +72,11 @@ The right terminal is for running the majority of commands.
   - To throw away changes that *have* been staged (i.e. after using `git add .` shortcut or `git add --all` for all files) run `git reset` (optional `--soft` `--hard`)
 - `git checkout master`
 - `git checkout -b merge-branch`
+- [] `git checkout master`
+  - remember to check the checkboxes as you go (remember to save the file too), and keep producing new graphs to see what changes.
+- [] `git commit -am "changes on master"`
+  - This should make it so master is back in the first position and __HEAD__ should be pointed at master, because it's the currently checked out branch. Both __merge-branch__ and __master__ can't fit on the same line, so __merge-branch__ is indented. However if you run `git rev-list --count merge-branch..master` again, it should show 1, which means __master__ has one commit that __merge-branch__ does not. Comparitively, if you reverse the command like `git rev-list --count master..merge-branch`, it should show that __merge-branch__ also has one commit that master does not. This means that "histories have diverged" and we need to rectify it with either a rebase or a merge. 
+  - Since we're working on the __merge-branch__, we'll perform a merge. 
 
 
 
