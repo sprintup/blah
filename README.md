@@ -10,20 +10,30 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 We're going to learn how to merge first, then rebase. 
 Open up two terminals side-by-side and run these commands (ask ChatGPT what they do if needed). I'm assuming we're starting with only one branch, master. 
 Terminology 
-- "fork" is a copy of a repository that resides in your personal account. Users can "fork" a project to their own account, make their modifications, and then propose those changes back to the original project via a "pull request".
--a branch is essentially a unique set of code changes with a unique name. Each repository can have one or more branches, allowing you to work on multiple features simultaneously without them interfering with each other. The main branch (the one where all changes eventually get merged into) is usually called master or main.
+- "repository" in Git is a directory where Git has been initialized to start version tracking. It is essentially your project's folder which contains all of the project files and the metadata about the project history stored in a subdirectory named .git. Each Git repository is standalone and contains the full history of the project. This means that if you have a copy of a Git repository, you have the entire project history on your local machine, making it robust against network failures or server crashes.
+  - "Local repository:" This is the repository on your local machine where you make changes to your files. It's created using the git init command or cloned from a remote repository using git clone.
+  - "Remote repository:" This is the repository that is hosted on a server on the internet or in a network. This is where developers push their changes for collaboration with others. Popular hosting services for remote Git repositories include GitHub, GitLab, and Bitbucket.
+  - "cloning" creates a local copy of a repository, while "forking" creates a server-side copy of the repository under your own account.
+    - "upstream" : is used to refer to the main branch or the original repository from which you cloned or forked. More specifically, it often refers to the branch that you're tracking in the original repository.
+    - "Fork:" Forking, on the other hand, is a feature provided by hosting services like GitHub and GitLab that lets you create a personal copy of someone else's repository under your own account. This is used when you want to contribute to a project that you don't have write access to. After forking, you can clone the forked repository to your local machine, make changes, and then *** propose those changes back to the original repository by creating a pull request.*** The original repository owners can then review your changes and decide whether to merge them into the original repository.
+    - "Clone:" Cloning is a Git operation that *** creates a copy of a repository on your local machine.*** When you clone a repository, you get a new directory on your computer with all the files and history of the repository. You can make changes to these files, commit those changes to your local repository, and push your commits back to the remote repository *** if you have write access.*** Cloning is typically used when you're starting to work on a project that you have write access to, or when you want to work on a project locally and don't need to publish your changes.
+-a "branch" is essentially a unique set of code changes with a unique name. Each repository can have one or more branches, allowing you to work on multiple features simultaneously without them interfering with each other. The main branch (the one where all changes eventually get merged into) is usually called master or main.
   - Each branch in Git is a pointer to a specific commit, marking the 'tip' of a series of commits (i.e., the history of work done). New commits are added to the end of this series and pointed to by the branch.
-  - When you create a new branch, Git creates a new pointer for you to move around. This means you can switch branches quickly and easily, as Git simply needs to move the HEAD pointer to a different commit. Creating a new branch doesn't change the repository; it simply adds a new pointer to the existing commits.
-- "commit" is a snapshot of your work that you've saved to your repository. Every commit is uniquely identified by a SHA-1 hash which represents a specific set of changes. Common SHAs mean a common history between branches. When SHAs change due to a command, that means the history has changed. 
-- "history" : refers to the sequence of commits made in a repository over time. Each commit represents a set of changes made to the project and is linked to the commit that came before it. This linking forms a chain of commits, which we call the commit history or simply "history".
-- "upstream" : is used to refer to the main branch or the original repository from which you cloned or forked. More specifically, it often refers to the branch that you're tracking in the original repository.
-- "HEAD" which is the latest commit of the currently checked out branch. When running `git log`, "HEAD" will be pointing to a branch. 
-  - Detached HEAD: This is the state when HEAD points to a specific commit, instead of a branch. This can be risky because any changes made in this state won't belong to any branch and will be lost when you check out another branch. This situation usually occurs when checking out commits or tags instead of branches.
-    - You can reattach HEAD to a branch by checking a branch out again with `git checkout branchname`
-  - Attached HEAD: This is the usual state of HEAD when it points to the tip (the most recent commit) of the current branch.
+  - When you create a new branch, Git creates a new pointer for you to move around. This means you can switch branches quickly and easily, as Git simply needs to move the *** HEAD pointer *** to a different commit. Creating a new branch doesn't change the repository; it simply adds a new pointer to the existing commits.
+    - "HEAD" which is the latest commit of the currently checked out branch. When running `git log`, "HEAD" will be pointing to a branch. 
+      - Detached HEAD: This is the state when HEAD points to a specific commit, instead of a branch. This can be risky because any changes made in this state won't belong to any branch and will be lost when you check out another branch. This situation usually occurs when checking out commits or tags instead of branches.
+        - You can reattach HEAD to a branch by checking a branch out again with `git checkout branchname`
+      - Attached HEAD: This is the usual state of HEAD when it points to the tip (the most recent commit) of the current branch.
+- "commit" is a snapshot of your work that you've saved to your repository. *** Every commit is uniquely identified by a SHA-1 hash *** which represents a specific set of changes. Common SHAs mean a common history between branches. When SHAs change due to a command, that means the history has changed. 
+  - "history" : refers to the sequence of commits made in a repository over time. Each commit represents a set of changes made to the project and is linked to the commit that came before it. This linking forms a chain of commits, which we call the commit history or simply "history".
 
 
 - [git-rebase](https://git-scm.com/docs/git-rebase) - Reapply commits on top of another base tip
+  - Base: The base, in the context of a rebase, is the commit on which you want to base your work on. When you run a rebase operation, Git finds the *common ancestor* of the current branch and the one you're rebasing onto, then applies each of the changes from your branch onto the head of the branch you're rebasing onto. This base commit is effectively the starting point of your changes.
+  - Tip: The tip refers to the most recent commit of the branch, also known as the *** "HEAD" ***. In the context of a rebase, it means the latest commit in the branch that you're trying to rebase.
+![mostRecentCommit](/assets/mostRecentCommit.png) 
+
+
 - [git-merge](https://git-scm.com/docs/git-merge) - Join two or more development histories together
 
 
@@ -48,8 +58,6 @@ The right terminal is for running the majority of commands.
 - `git checkout -b merge-branch`
 
 
-![mostRecentCommit](/assets/mostRecentCommit.png) 
-[rebase docs](https://git-scm.com/docs/git-rebase)
 
 ### Total Beginner
 - [ ] [Git School](https://www.youtube.com/channel/UCshmCws1MijkZLMkPmOmzbQ) specifically, [start here](https://www.youtube.com/watch?v=OZEGnam2M9s&list=PLu-nSsOS6FRIg52MWrd7C_qSnQp3ZoHwW)
