@@ -135,8 +135,11 @@ The right terminal is for running the majority of commands. Mark off the command
 - [X] `git commit -am "changes on master before rebase"`
     - need to add some changes to __master__ branch that is not on __rebase-branch__.
 
-- [ ] `git checkout rebase-branch`
+- [X] `git checkout rebase-branch`
     - changes are alreadyhere from before and we just need to run a rebase.
+
+- [X] `git commit -am "more changes on rebase-branch before rebase"`
+    - Mark this complete before rebase to avoid common changes bug. 
 
 - [ ] `git rebase master`
     - When you run the command `git rebase`, you are saying **"reapply the commits from the current branch onto the branch I specify."** In this case, we're applying the changes "changes made on rebase branch" onto __ master__, since we specified master.
