@@ -118,21 +118,21 @@ The right terminal is for running the majority of commands. Mark off the command
 
 - [X] `git checkout master`
 
-- [ ] `git commit -am "rebase start"`
+- [X] `git commit -am "rebase start"`
     - Remember to check the box to trigger a change to the file. 
 
-- [ ] `git checkout -b rebase-branch`
+- [X] `git checkout -b rebase-branch`
     - One of the things to notice is that if you make changes while on one branch, you can move to a *new* branch without needing to check them in. This is not the case if you're moving to an *existing* branch. You'll have to manage your changes by either 
       - Commiting them
       - Throwing them out with something like `git checkout .` or `git reset`
       - Stashing them with `git stash save "Your descriptive message here"` and `git stash pop`
 
-- [ ] `git commit -am "changes made on rebase branch"`
+- [X] `git commit -am "changes made on rebase branch"`
     - Check the graph, HEAD should be pointing at rebase-branch and "changes made on rebase branch should be on top"
 
-- [ ] `git checkout master`
+- [X] `git checkout master`
 
-- [ ] `git commit -am "changes on master before rebase"`
+- [X] `git commit -am "changes on master before rebase"`
     - need to add some changes to __master__ branch that is not on __rebase-branch__.
 
 - [ ] `git checkout rebase-branch`
