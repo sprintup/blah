@@ -63,7 +63,8 @@ This is some different text from the branch being merged.
 #### Left terminal - Command prompt
 The left terminal is meant to only show graphs of history to become accustomed to how it looks.
 - `git log --pretty=oneline --graph --decorate --max-count=5 --all --abbrev-commit` -> only run this in the left terminal, one per time between all the right terminal commands
-  - The latest commits across all branches will appear first, so if HEAD is not on the top line, there are commits that have occured more recently than the currently checked out branch. 
+  - The latest commits across all branches will appear first, so if HEAD is not on the top line, there are commits that have occured more recently than the currently chec
+  ked out branch. 
   - You can simply press up to rerun the command, instead of having to type it out every time. 
 
 #### Right terminal - VS Code with terminal open and readme open
@@ -71,14 +72,14 @@ The right terminal is for running the majority of commands. Mark off the command
 
 
 
-- [ ] `git status` -> good to run anytime, shows status. 
+- [X] `git status` -> good to run anytime, shows status. 
     - `git commit -am "commit message"` is a shortcut combination to stage and commit your changes. (`git add .` and `git commit -m "commit message"`)
       - `git add --all` is a way to stage your changes. 
         - `git commit --amend` is a way to change the commit message of the previous commit, but this will create a new SHA (changes history)
     - To throw away 'Changes not staged for commit' run `git checkout .`
     - To throw away changes that *have* been staged (i.e. after using `git add .` shortcut or `git add --all` for all files) run `git reset` (optional `--soft` `--hard`)
   
-- [ ] `git checkout master`
+- [X] `git checkout master`
     - delete all other branches with `git branch -d other-branch-name` passing `-f` if needed. 
   
 - [ ] `git commit -m "tutorial start"`
