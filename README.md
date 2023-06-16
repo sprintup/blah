@@ -117,7 +117,11 @@ __Run only the commands in the top level of this bullet list (marked with -[ ]).
     - Now if you wanted__merge-branch__to be at the same commit, you would want to merge changes from__master__into__merge-branch__, which would require checking out__merge-branch__and running `git merge master`. Then look at the graph and you'll see both branches on the same commit.
   
 - [ ] `git checkout master`
-- [ ] 
+
+- [ ] `git commit -am "changes on master before rebase"`
+    - need to add some changes to __master__ branch that is not on __rebase-branch__.
+
+- [ ] `git checkout rebase-branch`
 
 
 ## Additional resources
