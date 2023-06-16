@@ -82,9 +82,9 @@ The right terminal is for running the majority of commands. Mark off the command
 - [X] `git checkout master`
     - delete all other branches with `git branch -d other-branch-name` passing `-f` if needed. 
   
-- [ ] `git commit -m "tutorial start"`
+- [X] `git commit -m "tutorial start"`
   
-- [ ] `git checkout -b merge-branch`
+- [X] `git checkout -b merge-branch`
     - make sure tocheck the checkboxs up to this point and save the file
   
 - [ ] `git commit -am "changes made in merge-branch"`
