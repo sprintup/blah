@@ -1,17 +1,55 @@
 # Intro
 
-
-merge
-second commit on merge-branch
-
-rebase
-changes from master to merge
-
-
-
 This is a total mess of a repo and you can break everything to learn how to use git. 
 
 There is no perfect way to use this repo, in fact a lot of it won't be useful but might just be an idea for how to proceed. I'll also include some resources to learn git and it might behoove you to make a similar repo of your own and try to do things like you can find in the commit history: 
+
+
+## Tutorial
+
+We're going to learn how to merge first, then rebase. 
+Open up two terminals side-by-side and run these commands (ask ChatGPT what they do if needed). I'm assuming we're starting with only one branch, master. 
+Terminology 
+- "fork" is a copy of a repository that resides in your personal account. Users can "fork" a project to their own account, make their modifications, and then propose those changes back to the original project via a "pull request".
+-a branch is essentially a unique set of code changes with a unique name. Each repository can have one or more branches, allowing you to work on multiple features simultaneously without them interfering with each other. The main branch (the one where all changes eventually get merged into) is usually called master or main.
+  - Each branch in Git is a pointer to a specific commit, marking the 'tip' of a series of commits (i.e., the history of work done). New commits are added to the end of this series and pointed to by the branch.
+  - When you create a new branch, Git creates a new pointer for you to move around. This means you can switch branches quickly and easily, as Git simply needs to move the HEAD pointer to a different commit. Creating a new branch doesn't change the repository; it simply adds a new pointer to the existing commits.
+- "commit" is a snapshot of your work that you've saved to your repository. Every commit is uniquely identified by a SHA-1 hash which represents a specific set of changes. Common SHAs mean a common history between branches. When SHAs change due to a command, that means the history has changed. 
+- "history" : refers to the sequence of commits made in a repository over time. Each commit represents a set of changes made to the project and is linked to the commit that came before it. This linking forms a chain of commits, which we call the commit history or simply "history".
+- "upstream" : is used to refer to the main branch or the original repository from which you cloned or forked. More specifically, it often refers to the branch that you're tracking in the original repository.
+- "HEAD" which is the latest commit of the currently checked out branch. When running `git log`, "HEAD" will be pointing to a branch. 
+  - Detached HEAD: This is the state when HEAD points to a specific commit, instead of a branch. This can be risky because any changes made in this state won't belong to any branch and will be lost when you check out another branch. This situation usually occurs when checking out commits or tags instead of branches.
+    - You can reattach HEAD to a branch by checking a branch out again with `git checkout branchname`
+  - Attached HEAD: This is the usual state of HEAD when it points to the tip (the most recent commit) of the current branch.
+
+
+- [git-rebase](https://git-scm.com/docs/git-rebase) - Reapply commits on top of another base tip
+- [git-merge](https://git-scm.com/docs/git-merge) - Join two or more development histories together
+
+
+#### Left terminal
+The left terminal is meant to only show graphs of history to become accustomed to how it looks.
+- `git checkout master`
+    - To simplify things, make sure 'HEAD' is always pointed at master in the left terminal. This means *** run `git checkout master` in the right terminal before running the next command in the left terminal. *** 
+- `git log --pretty=oneline --graph --decorate --max-count=5 --all` -> only run this in the left terminal, one per time between all the right terminal commands
+  - The latest commits across all branches will appear first, so if HEAD is not on the top line, there are commits that have occured more recently than the currently checked out branch. 
+  - You can simply press up to rerun the command, instead of having to type it out every time. 
+
+#### Right terminal
+The right terminal is for running the majority of commands. 
+*** Run only the commands in the top level of this bullet list. Nested commands are just explainations. Also, [Read the docs](https://git-scm.com/docs)*** Nested commands depend on the context of parent commands in this tree. 
+- `git status` -> good to run anytime, shows status. 
+  - `git commit -am "commit message"` is a shortcut combination to stage and commit your changes. (`git add .` and `git commit -m "commit message"`)
+    - `git add --all` is a way to stage your changes. 
+      - `git commit --amend` is a way to change the commit message of the previous commit, but this will create a new SHA (changes history)
+  - To throw away 'Changes not staged for commit' run `git checkout .`
+  - To throw away changes that *have* been staged (i.e. after using `git add .` shortcut or `git add --all` for all files) run `git reset` (optional `--soft` `--hard`)
+- `git checkout master`
+- `git checkout -b merge-branch`
+
+
+![mostRecentCommit](/assets/mostRecentCommit.png) 
+[rebase docs](https://git-scm.com/docs/git-rebase)
 
 ### Total Beginner
 - [ ] [Git School](https://www.youtube.com/channel/UCshmCws1MijkZLMkPmOmzbQ) specifically, [start here](https://www.youtube.com/watch?v=OZEGnam2M9s&list=PLu-nSsOS6FRIg52MWrd7C_qSnQp3ZoHwW)
