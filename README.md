@@ -39,23 +39,25 @@ Terminology
 
 #### Left terminal
 The left terminal is meant to only show graphs of history to become accustomed to how it looks.
-- `git checkout master`
-    - To simplify things, make sure 'HEAD' is always pointed at master in the left terminal. This means *** run `git checkout master` in the right terminal before running the next command in the left terminal. *** 
 - `git log --pretty=oneline --graph --decorate --max-count=5 --all` -> only run this in the left terminal, one per time between all the right terminal commands
   - The latest commits across all branches will appear first, so if HEAD is not on the top line, there are commits that have occured more recently than the currently checked out branch. 
   - You can simply press up to rerun the command, instead of having to type it out every time. 
 
 #### Right terminal
-The right terminal is for running the majority of commands. 
+The right terminal is for running the majority of commands. Mark off the commands as you run them by placing an X inside the `- []` so it looks like `- [X]`.
 *** Run only the commands in the top level of this bullet list. Nested commands are just explainations. Also, [Read the docs](https://git-scm.com/docs)*** Nested commands depend on the context of parent commands in this tree. 
-- `git status` -> good to run anytime, shows status. 
+- [] `git status` -> good to run anytime, shows status. 
   - `git commit -am "commit message"` is a shortcut combination to stage and commit your changes. (`git add .` and `git commit -m "commit message"`)
     - `git add --all` is a way to stage your changes. 
       - `git commit --amend` is a way to change the commit message of the previous commit, but this will create a new SHA (changes history)
   - To throw away 'Changes not staged for commit' run `git checkout .`
   - To throw away changes that *have* been staged (i.e. after using `git add .` shortcut or `git add --all` for all files) run `git reset` (optional `--soft` `--hard`)
-- `git checkout master`
-- `git checkout -b merge-branch`
+- [] `git checkout master`
+  - delete all other branches with `git branch -d other-branch-name` passing `-f` if needed. 
+- []`git commit -m "tutorial start"`
+- []`git checkout -b merge-branch`
+- []`git commit -am "deleted line"`
+  - remember to run the left terminal between every command so you can see what the repository is doing. Right now *** HEAD *** should be pointed at `merge-branch`. Also, the latest commit "deleted line" should be on top, while the master branch is pointed to the second commit "tutorial start". This means `merge-branch` is one commit ahead of master. This can be verified by running `git rev-list --count master..HEAD`. To see how many commits `master` is ahead of `merge-branch` try running `git rev-list --count HEAD..master`. The result should be 1 and 0 respectively. 
 
 
 
