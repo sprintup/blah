@@ -58,17 +58,16 @@ This is some different text from the branch being merged.
 >>>>>>> branch-being-merged
 
 ```
-### Coding part start  
+### Coding part start  - please read the instructions
 
-#### Left terminal
+#### Left terminal - Command prompt
 The left terminal is meant to only show graphs of history to become accustomed to how it looks.
 - `git log --pretty=oneline --graph --decorate --max-count=5 --all --abbrev-commit` -> only run this in the left terminal, one per time between all the right terminal commands
   - The latest commits across all branches will appear first, so if HEAD is not on the top line, there are commits that have occured more recently than the currently checked out branch. 
   - You can simply press up to rerun the command, instead of having to type it out every time. 
 
-#### Right terminal
-The right terminal is for running the majority of commands. Mark off the commands as you run them by placing an X inside the `- [ ]` so it looks like `- [X]`.
-__Run only the commands in the top level of this bullet list (marked with -[ ]). Nested commands are just explainations. Also, [Read the docs](https://git-scm.com/docs)__ Nested commands depend on the context of parent commands in this tree. 
+#### Right terminal - VS Code with terminal open and readme open
+The right terminal is for running the majority of commands. Mark off the commands as you run them by placing an X inside the `- [ ]` so it looks like `- [X]`. This will trigger 'changes' that you can commit so you can view the history. The only required commands are in the top level of this bullet list (marked with -[ ]). Nested commands are just explainations. Also, [Read the docs](https://git-scm.com/docs). Nested commands depend on the context of parent commands in this tree. If you try running the nested commands, you might get stuck in a state and have to run `git checkout master` then `git fetch origin` and `git reset --hard origin/master` to start over.
 
 
 
@@ -94,34 +93,58 @@ __Run only the commands in the top level of this bullet list (marked with -[ ]).
     - remember to check the checkboxes as you go (remember to save the file too), and keep producing new graphs to see what changes.
   
 - [ ] `git commit -am "changes on master"`
-    - This should make it so master is back in the first position and__HEAD__should be pointed at master, because it's the currently checked out branch. Both__merge-branch__and__master__can't fit on the same line, so__merge-branch__is indented. However if you run `git rev-list --count merge-branch..master` again, it should show 1, which means__master__has one commit that__merge-branch__does not. Comparitively, if you reverse the command like `git rev-list --count master..merge-branch`, it should show that__merge-branch__also has one commit that master does not. This means that "histories have diverged" and we need to rectify it with either a rebase or a merge. 
-    - Since we're working on the__merge-branch__, we'll perform a merge. 
+    - This should make it so master is back in the first position and __HEAD__ should be pointed at master, because it's the currently checked out branch. Both __merge-branch__ and __master__ can't fit on the same line, so __merge-branch__ is indented. However if you run `git rev-list --count merge-branch..master` again, it should show 1, which means __master__ has one commit that __merge-branch__ does not. Comparitively, if you reverse the command like `git rev-list --count master..merge-branch`, it should show that __merge-branch__ also has one commit that master does not. This means that "histories have diverged" and we need to rectify it with either a rebase or a merge. 
+    - Since we're working on the __merge-branch__, we'll perform a merge. 
   
 - [ ] `git merge merge-branch` from master
-    - This command will replay changes made on__merge-branch__since it diverged from__master__(one commit ago) until the current commit of__merge-branch__. It does this on top of master. ![rebase](/assets/tutorial/merge.png) 
+    - This command will replay changes made on __merge-branch__ since it diverged from __master__(one commit ago) until the current commit of __merge-branch__. It does this on top of master. ![rebase](/assets/tutorial/merge.png) 
     - This should result in a conflict, where the changes for HEAD (master) are listed on top, even though we added them second. This means we need to move them down, below the merge branch and remove the symbols. 
     - Notice the conflicts appear in a special file, where the title is marked with an exlamation point and the terminal mentions 'Merging'. Since we're currently resolving conflicts, we'll need to close this file and add this merge of both files as a new commit.
-    - What happens if you start on__merge-branch__and run `git merge master`? 
+    - What happens if you start on __merge-branch__ and run `git merge master`? 
       - When you issue the command git merge, you are saying *** "merge the specified branch into the current branch." *** In other words, you are bringing changes from the specified branch into the one currently checked out.
   
 - [ ] `git commit -am "merged merge-branch into master"`
-    - When you run the graph, you should see HEAD pointed at master as the most recent commit and__merge-branch__one commit behind. We'll fix this, but first...
-    - `git rev-list --count master..merge-branch` will give you the number of commits that are in the__merge-branch__but not in__master__. 
-      - Should be 0, because we merged the changes of__merge-branch__into master.
-    - `git rev-list --count merge-branch..master` will give you the number of commits that are in the__master__but not in__merge-branch__. 
-      - Should be 2, because there was the original commit we made on__master__("changes on master") and the subsequent merge commit ("merged merge-branch into master")
-    - `git log --pretty=oneline --max-count=5 --abbrev-commit` to see the history of the currently checked out branch. In this case__master__which shows the "changes made in merge-branch" commit and the associated__merge-branch__just below. 
-      - The line that reconnects__merge-branch__to master, indicating the changes were included back into master. 
+    - When you run the graph, you should see HEAD pointed at master as the most recent commit and __merge-branch__ one commit behind. We'll fix this, but first...
+    - `git rev-list --count master..merge-branch` will give you the number of commits that are in the__merge-branch__but not in __master__. 
+      - Should be 0, because we merged the changes of __merge-branch__ into master.
+    - `git rev-list --count merge-branch..master` will give you the number of commits that are in the __master__ but not in __merge-branch__. 
+      - Should be 2, because there was the original commit we made on __master__("changes on master") and the subsequent merge commit ("merged merge-branch into master")
+    - `git log --pretty=oneline --max-count=5 --abbrev-commit` to see the history of the currently checked out branch. In this case __master__ which shows the "changes made in merge-branch" commit and the associated __merge-branch__ just below. 
+      - The line that reconnects __merge-branch__ to master, indicating the changes were included back into master. 
       - The stars indicate which branch the commit lives on. 
       - *** Comparing this to the same graph in the below rebase is key to understanding the difference between a merge and rebase ***
-    - Now if you wanted__merge-branch__to be at the same commit, you would want to merge changes from__master__into__merge-branch__, which would require checking out__merge-branch__and running `git merge master`. Then look at the graph and you'll see both branches on the same commit.
-  
+    - Now if you wanted __merge-branch__ to be at the same commit, you would want to merge changes from __master__ into __merge-branch__, which would require checking out __merge-branch__ and running `git merge master`. Then look at the graph and you'll see both branches on the same commit.
+
+- [ ] `git checkout master`
+
+- [ ] `git commit -am "rebase start"`
+    - Remember to check the box to trigger a change to the file. 
+
+- [ ] `git checkout -b rebase-branch`
+    - One of the things to notice is that if you make changes while on one branch, you can move to a *new* branch without needing to check them in. This is not the case if you're moving to an *existing* branch. You'll have to manage your changes by either 
+      - Commiting them
+      - Throwing them out with something like `git checkout .` or `git reset`
+      - Stashing them with `git stash save "Your descriptive message here"` and `git stash pop`
+
+- [ ] `git commit -am "changes made on rebase branch"`
+    - Check the graph, HEAD should be pointing at rebase-branch and "changes made on rebase branch should be on top"
+
 - [ ] `git checkout master`
 
 - [ ] `git commit -am "changes on master before rebase"`
     - need to add some changes to __master__ branch that is not on __rebase-branch__.
 
 - [ ] `git checkout rebase-branch`
+    - changes are alreadyhere from before and we just need to run a rebase.
+
+- [ ] `git rebase master`
+    - When you run the command `git rebase`, you are saying "reapply the commits from the current branch onto the branch I specify." In this case, we're applying the changes "changes made on rebase branch" onto __ master__, since we specified master.
+    - The special file with the conflicts may appear. Once you resolve the conflicts, *close this file* and proceed to the next command.
+
+- [ ] `git add .`
+
+- [ ] `git rebase --continue`
+
 
 
 ## Additional resources
