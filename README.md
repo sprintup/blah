@@ -82,15 +82,15 @@ The right terminal is for running the majority of commands. Mark off the command
 - [X] `git checkout master`
     - delete all other branches with `git branch -d other-branch-name` passing `-f` if needed. 
   
-- [ ] `git commit -m "tutorial start"`
+- [X] `git commit -m "tutorial start"`
   
-- [ ] `git checkout -b merge-branch`
+- [X] `git checkout -b merge-branch`
     - make sure tocheck the checkboxs up to this point and save the file
   
-- [ ] `git commit -am "changes made in merge-branch"`
+- [X] `git commit -am "changes made in merge-branch"`
     - remember to run the left terminal between every command so you can see what the repository is doing. Right now *** HEAD *** should be pointed at `merge-branch`. Also, the latest commit "changes made in merge-branch" should be on top, while the master branch is pointed to the second commit "tutorial start". This means `merge-branch` is one commit ahead of master. This can be verified by running `git rev-list --count master..HEAD`. To see how many commits `master` is ahead of `merge-branch` try running `git rev-list --count HEAD..master`. The result should be 1 and 0 respectively. 
   
-- [ ] `git checkout master`
+- [X] `git checkout master`
     - remember to check the checkboxes as you go (remember to save the file too), and keep producing new graphs to see what changes.
   
 - [ ] `git commit -am "changes on master"`
