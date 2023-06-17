@@ -229,11 +229,12 @@ In a nutshell, if you want to combine your changes with another branch while pre
 - [ ] [GitKraken Client](https://www.gitkraken.com/)
 - [ ] [Lazy Git Client](https://github.com/jesseduffield/lazygit)
 
-
+# End main section
 
 ***
+# Begin notes section
 
-# Merging vs Rebasing
+## Merging vs Rebasing
 - Merging preserves history exactly as it happened (same SHAs) and merges it into one single timeline
 - rebasing creates new commit (SHAs for changes in history)
 - `git log --all --decorate --oneline --graph --max-count=5` shows all branchs graph history, limiting to last 5 commits; 
