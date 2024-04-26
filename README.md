@@ -308,3 +308,7 @@ In a nutshell, if you want to combine your changes with another branch while pre
 # Exploring the repo
 ![mostRecentCommit](/assets/mostRecentCommit.png)
 ![parentCommit](/assets/parentCommit.png)
+"change" 
+"third change" 
+"second change" 
+
