@@ -30,6 +30,63 @@ There is no perfect way to use this repo, in fact a lot of it won't be useful bu
 🧠 Think of it as:  
 > “Combine the work from `[named-branch]` with what I have now.”
 
+## 🚀 Git Fast-Forward Merge Explained (with `development` and `feature` branches)
+
+### 🧠 What is a Fast-Forward Merge?
+
+A **fast-forward merge** happens when the branch you're merging into (e.g., `development`) has **no new commits** since it branched off from another branch (e.g., `feature`). In this case, Git can simply **move the pointer forward** — no merge commit is needed.
+
+---
+
+### 📘 Example Scenario
+
+You start with this:
+
+```
+A---B---C  (development)
+         \
+          D---E  (feature)
+```
+
+If `development` hasn’t changed since the branch was created, you can fast-forward it to include all the new commits from `feature`.
+
+---
+
+### ✅ How to Do It
+
+```bash
+git checkout development
+git merge --ff-only feature
+```
+
+- `--ff-only` ensures that Git **only performs the merge if it can be fast-forwarded**.
+- If `development` has diverged, Git will **abort** the merge instead of creating a merge commit.
+
+---
+
+### 🔍 Result After Fast-Forward
+
+```
+A---B---C---D---E  (development, feature)
+```
+
+Now `development` includes all the commits from `feature`, and no extra merge commit was created.
+
+---
+
+### 🛑 When Fast-Forward is Not Possible
+
+If `development` has its own commits after the split, like this:
+
+```
+A---B---C---F  (development)
+         \
+          D---E  (feature)
+```
+
+Then a fast-forward is **not possible**, and Git will stop with an error if you use `--ff-only`.
+
+
 ## Tutorial
 
 We're going to learn how to merge first, then rebase. 
