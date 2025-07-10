@@ -2,8 +2,33 @@
 
 This is a total mess of a repo and you can break everything to learn how to use git. 
 
-There is no perfect way to use this repo, in fact a lot of it won't be useful but might just be an idea for how to proceed. I'll also include some resources to learn git and it might behoove you to make a similar repo of your own and try to do things like you can find in the commit history: 
+You should probably install [this gist](https://gist.github.com/sprintup/5dbcd959f62f6563cb464639043dc363) first.
 
+There is no perfect way to use this repo, in fact a lot of it won't be useful but might just be an idea for how to proceed. I'll also include some resources to learn git and it might behoove you to make a similar repo of your own and try to do things like you can find in the commit history: 
+---
+## Merge vs. Rebase
+
+### 🔁 `git rebase [named-branch]`
+**Means:**  
+> “Rebase **my currently checked-out branch** *onto* `[named-branch]`.”
+
+- This **rewrites the history** of your current branch so it looks like it was based on `[named-branch]`.
+- It’s like saying: “Pretend I started this work from `[named-branch]` instead.”
+
+🧠 Think of it as:  
+> “Take my changes and replay them on top of `[named-branch]`.”
+
+---
+
+### 🔀 `git merge [named-branch]`
+**Means:**  
+> “Merge `[named-branch]` *into* **my currently checked-out branch**.”
+
+- This **preserves both histories** and creates a merge commit (unless it’s a fast-forward).
+- It’s like saying: “Bring the changes from `[named-branch]` into my current branch.”
+
+🧠 Think of it as:  
+> “Combine the work from `[named-branch]` with what I have now.”
 
 ## Tutorial
 
@@ -229,11 +254,12 @@ In a nutshell, if you want to combine your changes with another branch while pre
 - [ ] [GitKraken Client](https://www.gitkraken.com/)
 - [ ] [Lazy Git Client](https://github.com/jesseduffield/lazygit)
 
-
+# End main section
 
 ***
+# Begin notes section
 
-# Merging vs Rebasing
+## Merging vs Rebasing
 - Merging preserves history exactly as it happened (same SHAs) and merges it into one single timeline
 - rebasing creates new commit (SHAs for changes in history)
 - `git log --all --decorate --oneline --graph --max-count=5` shows all branchs graph history, limiting to last 5 commits; 
