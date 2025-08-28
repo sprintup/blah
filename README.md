@@ -1,4 +1,5 @@
 first commit
+second commit
 # Intro
 
 This is a total mess of a repo and you can break everything to learn how to use git. 
